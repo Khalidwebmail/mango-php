@@ -1,13 +1,19 @@
 <?php
 
 class Home extends Controller{
-    
+    private $post_model;
+
     public function __construct(){
         echo 'Home loaded'. '<br>';
+        $this->post_model = $this->model( 'Post_Model' );
     }
 
     public function index(){
-        $data = [ 'title' => 'Welcome' ];
+        $posts = $this->post_model->getPosts();
+        $data = [
+            'title'     => 'Welcome',
+            'posts'     => $posts
+        ];
         $this->loadView('home/index', $data);
     }
 

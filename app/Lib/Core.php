@@ -6,9 +6,9 @@
  */
 
 Class Core{
-    protected  $controller = 'Home';
-    protected  $method     = 'index';
-    protected  $params     = [];
+    private  $controller = 'Home';
+    private  $method     = 'index';
+    private  $params     = [];
 
     public function __construct(){
         $url = $this->getUrl();
