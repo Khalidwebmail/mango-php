@@ -1,6 +1,6 @@
 <?php
 
-class Home{
+class Home extends Controller{
     public function __construct()
     {
         echo 'Home loaded'. '<br>';
