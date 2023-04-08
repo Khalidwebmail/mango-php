@@ -1,17 +1,25 @@
 <?php
 
 class Controller{
-    public function model( $model ){
+    /**
+     * Load model
+     *
+     * @param string $model
+     * @return object
+     */
+    public function model( $model ): object{
         if( isset ( $model ) && ! empty( $model ) ){
             require_once '../app/models/' .$model. '.php';
             return new $model;
         }
     }
 
-    public function loadView( $view, $data = [] ){
+    public function loadView( $view, array|object $data  ){
+        
         if( isset( $view ) && ! empty( $view ) ){
-            if( file_exists( file_exists( '../app/view/' .$view. '.php' ) ) ){
-                require_once '../app/views/' .$views. '.php';
+            // print_r($view);exit;
+            if( file_exists( ( '../app/views/' .$view. '.php' ) ) ){
+                require_once '../app/views/' .$view. '.php';
             }
         }
         else{

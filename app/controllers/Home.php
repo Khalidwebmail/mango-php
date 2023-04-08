@@ -1,13 +1,14 @@
 <?php
 
 class Home extends Controller{
-    public function __construct()
-    {
+    
+    public function __construct(){
         echo 'Home loaded'. '<br>';
     }
 
     public function index(){
-        echo "this is home index ";
+        $data = [ 'title' => 'Welcome' ];
+        $this->loadView('home/index', $data);
     }
 
     public function about($id){
