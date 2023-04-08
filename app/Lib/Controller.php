@@ -20,7 +20,7 @@ class Controller{
         }
     }
 
-    public function loadView( $view, array|object $data  ){
+    public function loadView( $view, array|object $data = []  ){
         
         if( isset( $view ) && ! empty( $view ) ){
             // print_r($view);exit;
