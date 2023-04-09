@@ -115,9 +115,9 @@ class Database{
     /**
      * Count getting row from db
      *
-     * @return void
+     * @return int
      */
-    public function rowCount(){
+    public function rowCount(): int{
         return $this->stmt->rowCount();
     }
 }

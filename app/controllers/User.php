@@ -2,8 +2,9 @@
 
 class User extends Controller{
     
+    private $users;
     public function __construct(){
-        
+        $this->users = $this->model( 'User_Model' );
     }
 
     /**
@@ -28,6 +29,11 @@ class User extends Controller{
             // Validate Email
             if( empty( $data['email' ] ) ){
                 $data[ 'email_err' ] = 'Pleae enter email';
+            }
+            else{
+                if($this->users->findUserByEmail( $data[ 'email' ]) ){
+                    $data[ 'email_err' ] = 'This email is already taken';
+                }
             }
     
             // Validate Name
