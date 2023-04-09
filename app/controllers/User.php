@@ -58,9 +58,16 @@ class User extends Controller{
             }
 
             // Make sure errors are empty
-            if( empty( $data[ 'email_err'] ) && empty($data[ 'name_err' ] ) && empty( $data[ 'password_err' ] ) && empty($data['confirm_password_err'] ) ){
-                // Validated
-                die('SUCCESS');
+            if( empty( $data[ 'email_err'] ) && empty($data[ 'name_err' ] ) && empty( $data[ 'password_err' ] ) && empty( $data['confirm_password_err'] ) ){
+                
+                $data[ 'password' ] = password_hash( $data[ 'password' ], PASSWORD_DEFAULT );
+
+                if( $this->users->insert( $data ) ){
+                    header( 'location: '.URLROOT.'/user/login' );
+                }
+                else{
+                    die( 'Something wrong' );
+                }
             } else {
                 // Load view with errors
                 $this->loadView( 'user/signup', $data );
