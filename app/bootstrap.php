@@ -1,9 +1,14 @@
 <?php
 
     require_once 'config/settings.php';
-    require_once 'helper/session_helper.php';
-    require_once 'helper/html_helper.php';
-    require_once 'helper/token_helper.php'; 
+
+    $dir   = APPROOT.'/helper/';
+    $files = scandir( $dir );
+    unset( $files[0] );
+    unset( $files[1] );
+    foreach( $files as $file ){
+        require_once APPROOT.'/helper/'.$file;
+    }
 
     function my_autoloader( $class ) {
         require_once 'lib/' . $class . '.php';
