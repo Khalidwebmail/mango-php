@@ -1,6 +1,6 @@
 <?php
 
-function form_open( string $action = null, string $method = null , string $class = null, string $enctype = null ){
+function form_open( string $action = null, string $method = null, string $enctype = null, string $class = null ){
     explode(' ', $class  ?? '' );
     print "<form action='".$action."' method='".$method."' class='".$class."', enctype='".$enctype."'>";
 }
