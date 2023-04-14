@@ -2,12 +2,12 @@
 
     require_once 'config/settings.php';
 
-    $dir   = APPROOT.'/helper/';
-    $files = scandir( $dir );
+    $path  = APPROOT.'/helper/';
+    $files = scandir( $path );
     unset( $files[0] );
     unset( $files[1] );
     foreach( $files as $file ){
-        require_once APPROOT.'/helper/'.$file;
+        require_once $path.$file;
     }
 
     function my_autoloader( $class ) {
